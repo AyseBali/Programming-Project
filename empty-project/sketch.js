@@ -1,3 +1,4 @@
+/* globals createCanvas, mousePressed, background, ımage */
 var dragging = false;
 var dragging2 = false;
 
@@ -7,15 +8,15 @@ var clock;
 var arrow1;
 var arrow2;
 
-var x1, y1, w1, h1;
-var x2, y2, w2, h2;
+var x1, y1, w1, h1, r1;
+var x2, y2, w2, h2, r2;
 var offsetX, offsetY;
 var placeX, placeY;
 
 function preload () {
   clock = loadImage('clock.png');
   arrow1 = loadImage('croppedarrow.png');
-  arrow2 = loadImage('croppedarrow2.png')
+  arrow2 = loadImage('croppedarrow2.png');
 }
 
 function setup () {
@@ -25,11 +26,13 @@ function setup () {
   y1 = 50;
   w1 = 150;
   h1 = 80;
+  r1 = 0;
 
   x2 = 100;
   y2 = 100;
   w2 = 150;
-  h2 = 80
+  h2 = 80;
+  r2 = 0;
 }
 
 function draw () {
@@ -45,39 +48,45 @@ function draw () {
     y2 = mouseY + placeY;
   }
 
-  image(arrow1, x1, y1, w1, h1);
-  image(arrow2, x2, y2, w2, h2);
+  push();
+  translate(x1, y1);
+  rotate(r1);
+  image(arrow1, -w1, -h1 / 2, w1, h1);
+  pop();
+  push();
+  translate(x2, y2);
+  rotate(r2);
+  image(arrow2, 0, 0, w2, h2);
+  pop();
 }
- function mousePressed() {
-    if (mouseX > x1 && mouseX < x1 + w1 && mouseY > y1 && mouseY < y1 + h1) {
+
+function mousePressed () {
+  if (mouseX > x1 && mouseX < x1 + w1 && mouseY > y1 && mouseY < y1 + h1) {
     dragging = true;
 
-    offsetX = x1-mouseX;
-    offsetY = y1-mouseY;
+    offsetX = x1 - mouseX;
+    offsetY = y1 - mouseY;
   }
 
   if (mouseX > x2 && mouseX < x2 + w2 && mouseY > y2 && mouseY < y2 + h2) {
-  dragging2 = true;
+    dragging2 = true;
 
-  placeX = x2-mouseX;
-  placeY = y2-mouseY;
-}
-}
-
-/*
-function keyIsPressed() {
-  if (key === "ArrowRight") {
-    rotate(PI / 30.0);
-    arrow1;
-  }
-  if (key === "ArrowLeft") {
-    rotate(PI / -30.0);
-    arrow1;
+    placeX = x2 - mouseX;
+    placeY = y2 - mouseY;
   }
 }
-*/
 
-function mouseReleased() {
+function keyPressed () {
+  if (key === 'ArrowRight') {
+    r1 += 0.1;
+    console.log('Rotate rıght');
+  }
+  if (key === 'ArrowLeft') {
+    r1 -= 0.1;
+  }
+}
+
+function mouseReleased () {
   dragging = false;
   dragging2 = false;
 }
