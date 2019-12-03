@@ -77,19 +77,18 @@ function mousePressed () {
     placeY = y2 - mouseY;
   }
 }
-
 function keyPressed () {
   if (key === 'ArrowRight') {
-    r1 += 0.1;
+    r1 += 0.5;
   }
   if (key === 'ArrowLeft') {
-    r1 -= 0.1;
+    r1 -= 0.5;
   }
   if (key === 'ArrowUp') {
-    r2 += 0.1;
+    r2 += 0.5;
   }
   if (key === 'ArrowDown') {
-    r2 -= 0.1;
+    r2 -= 0.5;
   }
 }
 
