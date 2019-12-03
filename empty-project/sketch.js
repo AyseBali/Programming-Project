@@ -70,7 +70,7 @@ function mousePressed () {
     offsetY = y1 - mouseY;
   }
 
-  if (mouseX > -w2 && mouseX < x2 + w2 && mouseY > (h2 / 2) && mouseY < y2 + (h2 /2)) {
+  if (mouseX > x2 - w2 && mouseX < x2 + w2 && mouseY > y2 - (h2 / 2) && mouseY < y2 + (h2 /2)) {
     dragging2 = true;
 
     placeX = x2 - mouseX;
