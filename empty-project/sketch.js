@@ -1,4 +1,4 @@
-/* globals createCanvas, mousePressed, background, ımage */
+/* globals createCanvas, mousePressed, background, image */
 var dragging = false;
 var dragging2 = false;
 
@@ -20,17 +20,19 @@ function preload () {
 }
 
 function setup () {
-  createCanvas(800, 800);
+  createCanvas(600,600);
 
-  x1 = 50;
-  y1 = 50;
+//Big Arrow
+  x1 = 200;
+  y1 = 200;
   w1 = 150;
   h1 = 80;
   r1 = 0;
 
-  x2 = 100;
-  y2 = 100;
-  w2 = 150;
+//Little Arrow
+  x2 = 300;
+  y2 = 300;
+  w2 = 120;
   h2 = 80;
   r2 = 0;
 }
@@ -56,19 +58,19 @@ function draw () {
   push();
   translate(x2, y2);
   rotate(r2);
-  image(arrow2, 0, 0, w2, h2);
+  image(arrow2, -w2, -h2 / 2 , w2, h2);
   pop();
 }
 
 function mousePressed () {
-  if (mouseX > x1 && mouseX < x1 + w1 && mouseY > y1 && mouseY < y1 + h1) {
+  if (mouseX > -w1 && mouseX < x1 + w1 && mouseY > (h1 / 2) && mouseY < y1 + (h1 / 2)) {
     dragging = true;
 
     offsetX = x1 - mouseX;
     offsetY = y1 - mouseY;
   }
 
-  if (mouseX > x2 && mouseX < x2 + w2 && mouseY > y2 && mouseY < y2 + h2) {
+  if (mouseX > -w2 && mouseX < x2 + w2 && mouseY > (h2 / 2) && mouseY < y2 + (h2 /2)) {
     dragging2 = true;
 
     placeX = x2 - mouseX;
@@ -79,12 +81,18 @@ function mousePressed () {
 function keyPressed () {
   if (key === 'ArrowRight') {
     r1 += 0.1;
-    console.log('Rotate rıght');
   }
   if (key === 'ArrowLeft') {
     r1 -= 0.1;
   }
+  if (key === 'ArrowUp') {
+    r2 += 0.1;
+  }
+  if (key === 'ArrowDown') {
+    r2 -= 0.1;
+  }
 }
+
 
 function mouseReleased () {
   dragging = false;
