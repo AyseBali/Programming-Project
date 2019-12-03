@@ -63,7 +63,7 @@ function draw () {
 }
 
 function mousePressed () {
-  if (mouseX > -w1 && mouseX < x1 + w1 && mouseY > (h1 / 2) && mouseY < y1 + (h1 / 2)) {
+  if (mouseX > x1 - w1 && mouseX < x1 + w1 && mouseY > y1 - (h1 / 2) && mouseY < y1 + (h1 / 2)) {
     dragging = true;
 
     offsetX = x1 - mouseX;
@@ -79,16 +79,16 @@ function mousePressed () {
 }
 function keyPressed () {
   if (key === 'ArrowRight') {
-    r1 += 0.5;
+    r1 += 0.1;
   }
   if (key === 'ArrowLeft') {
-    r1 -= 0.5;
+    r1 -= 0.1;
   }
   if (key === 'ArrowUp') {
-    r2 += 0.5;
+    r2 += 0.1;
   }
   if (key === 'ArrowDown') {
-    r2 -= 0.5;
+    r2 -= 0.1;
   }
 }
 
