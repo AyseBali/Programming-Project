@@ -17,8 +17,17 @@ function preload () {
   arrow2 = loadImage('croppedarrow2.png');
 }
 
+
+
+
 function setup () {
-  createCanvas(600,600);
+  var canvas = 
+  createCanvas(550,550);
+  canvas.parent('sketch-holder');
+//  var cnv = createCanvas(600,600);
+//  var x = (windowWidth) / 2;
+//  var y = (windowHeight) / 4;
+//  cnv.position(x, y);
   angleMode(DEGREES);
 
   // magic to make the browser not scroll with the arrow keys
