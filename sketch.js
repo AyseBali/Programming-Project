@@ -17,9 +17,6 @@ function preload () {
   arrow2 = loadImage('croppedarrow2.png');
 }
 
-
-
-
 function setup () {
   var canvas =
   createCanvas(550,550);
@@ -76,15 +73,31 @@ function draw () {
   image(arrow2, -w2, -h2 / 2 , w2, h2);
   pop();
 
-  // testing changing the DOM
-  if (r1 === 1) {
+  // 12:10 pm
+  if (r1 === 90 && r2 === 140) {
     document.getElementById('img1').src = '1.jpeg';
-  } else {
-    // document.getElementById('img1').src = '1.1.jpeg';
+  }
+  // 11:15 am
+  if (r1 === 60 && r2 === 180) {
+    document.getElementById('img2').src = '2.jpeg';
+  }
+  // 7:45 pm
+  if (r1 === 300 && r2 === 0) {
+    document.getElementById('img3').src = '3.jpeg';
+  }
+  // 5:05 am
+  if (r1 === 240 && r2 === 120) {
+    document.getElementById('img4').src = '4.jpeg';
+  }
+  // 3:30 pm
+  if (r1 === 180 && r2 === 270) {
+    document.getElementById('img5').src = '5.jpeg';
+  }
+  // 9:20 am
+  if (r1 === 0 && r2 === 220) {
+    document.getElementById('img6').src = '6.jpeg';
   }
 }
-
-
 
 // function mousePressed () {
 //   if (mouseX > x1 - w1 && mouseX < x1 + w1  && mouseY > y1 - (h1 / 2) && mouseY < y1 + (h1 / 2)) {
@@ -103,19 +116,19 @@ function draw () {
 // }
 function keyPressed () {
   if (key === 'ArrowRight') {
-    r1 += 1;
+    r1 += 10;
     r1 = wrapClock(r1);
   }
   if (key === 'ArrowLeft') {
-    r1 -= 1;
+    r1 -= 10;
     r1 = wrapClock(r1);
   }
   if (key === 'ArrowUp') {
-    r2 += 0.1;
+    r2 += 10;
     r2 = wrapClock(r2);
   }
   if (key === 'ArrowDown') {
-    r2 -= 0.1;
+    r2 -= 10;
     r2 = wrapClock(r2);
   }
 }
