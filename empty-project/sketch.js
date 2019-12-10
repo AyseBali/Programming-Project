@@ -19,10 +19,11 @@ function preload () {
 
 function setup () {
   createCanvas(600,600);
+  angleMode(DEGREES);
 
 //Big Arrow
-  x1 = 200;
-  y1 = 200;
+  x1 = 300;
+  y1 = 300;
   w1 = 150;
   h1 = 80;
   r1 = 0;
@@ -39,17 +40,17 @@ function draw () {
   background(255);
   image(clock, 50, 50, 500, 500);
 
-  if (dragging) {
-    x1 = mouseX + offsetX;
-    y1 = mouseY + offsetY;
-  }
-  if (dragging2) {
-    x2 = mouseX + placeX;
-    y2 = mouseY + placeY;
-  }
+  // if (dragging) {
+  //   x1 = mouseX + offsetX;
+  //   y1 = mouseY + offsetY;
+  // }
+  // if (dragging2) {
+  //   x2 = mouseX + placeX;
+  //   y2 = mouseY + placeY;
+  // }
 
-  text('12:10',20,20);
-  text('11:15',60,20);
+  text('r1: ' + r1.toFixed(2), 20, 20);
+  text('r2: ' + r2.toFixed(2), 80, 20);
 
   push();
   translate(x1, y1);
@@ -65,41 +66,49 @@ function draw () {
 
 
 
-function mousePressed () {
-  if (mouseX > x1 - w1 && mouseX < x1 + w1  && mouseY > y1 - (h1 / 2) && mouseY < y1 + (h1 / 2)) {
-    dragging = true;
-
-    offsetX = x1 - mouseX;
-    offsetY = y1 - mouseY;
-  }
-
-  if (mouseX > x2 - w2 && mouseX < x2 + w2  && mouseY > y2 - (h2 / 2) && mouseY < y2 + (h2 / 2)) {
-    dragging2 = true;
-
-    placeX = x2 - mouseX;
-    placeY = y2 - mouseY;
-  }
-}
+// function mousePressed () {
+//   if (mouseX > x1 - w1 && mouseX < x1 + w1  && mouseY > y1 - (h1 / 2) && mouseY < y1 + (h1 / 2)) {
+//     dragging = true;
+//
+//     offsetX = x1 - mouseX;
+//     offsetY = y1 - mouseY;
+//   }
+//
+//   if (mouseX > x2 - w2 && mouseX < x2 + w2  && mouseY > y2 - (h2 / 2) && mouseY < y2 + (h2 / 2)) {
+//     dragging2 = true;
+//
+//     placeX = x2 - mouseX;
+//     placeY = y2 - mouseY;
+//   }
+// }
 function keyPressed () {
   if (key === 'ArrowRight') {
-    r1 += 0.1;
+    r1 += 1;
+    r1 = wrapClock(r1);
   }
   if (key === 'ArrowLeft') {
-    r1 -= 0.1;
+    r1 -= 1;
+    r1 = wrapClock(r1);
   }
   if (key === 'ArrowUp') {
     r2 += 0.1;
+    r2 = wrapClock(r2);
   }
   if (key === 'ArrowDown') {
     r2 -= 0.1;
+    r2 = wrapClock(r2);
   }
+}
+
+function wrapClock (r) {
+  var rotation = r % 360;
+  if (rotation < 0) {
+    rotation = 360 + rotation;
+  }
+  return rotation;
 }
 
 function mouseReleased () {
   dragging = false;
   dragging2 = false;
-}
-if (x1 = 300 && x2 <= 300) {
-  console.log("5");
-
 }
