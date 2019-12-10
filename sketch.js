@@ -76,7 +76,7 @@ function draw () {
     document.getElementById('img1').src = '1.jpeg';
   }
   // 11:15 am
-  if (r1 === 60){
+  if (r1 === 60) {
     document.getElementById('img2').src = '2.jpeg';
   }
   // 7:45 pm
@@ -84,16 +84,16 @@ function draw () {
     document.getElementById('img3').src = '3.jpeg';
   }
   // 5:05 am
-  if (r1 === 240){
-      document.getElementById('img4').src = '4.jpeg';
+  if (r1 === 240) {
+    document.getElementById('img4').src = '4.jpeg';
   }
   // 3:30 pm
-  if (r1 === 180){
-      document.getElementById('img5').src = '5.jpeg';
+  if (r1 === 180) {
+    document.getElementById('img5').src = '5.jpeg';
   }
   // 9:20 am
-  if (r1 === 0){
-      document.getElementById('img6').src = '6.jpeg';
+  if (r1 === 0) {
+    document.getElementById('img6').src = '6.jpeg';
   }
 }
 
