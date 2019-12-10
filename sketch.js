@@ -21,6 +21,14 @@ function setup () {
   createCanvas(600,600);
   angleMode(DEGREES);
 
+  // magic to make the browser not scroll with the arrow keys
+  window.addEventListener('keydown', function (e) {
+    // space and arrow keys
+    if ([32, 37, 38, 39, 40].indexOf(e.keyCode) > -1) {
+      e.preventDefault();
+    }
+  }, false);
+
 //Big Arrow
   x1 = 300;
   y1 = 300;
@@ -37,7 +45,7 @@ function setup () {
 }
 
 function draw () {
-  background(255);
+  background('powderblue');
   image(clock, 50, 50, 500, 500);
 
   // if (dragging) {
@@ -62,6 +70,13 @@ function draw () {
   rotate(r2);
   image(arrow2, -w2, -h2 / 2 , w2, h2);
   pop();
+
+  // testing changing the DOM
+  if (r1 === 1) {
+    document.getElementById('img1').src = '1.jpeg';
+  } else {
+    // document.getElementById('img1').src = '1.1.jpeg';
+  }
 }
 
 
