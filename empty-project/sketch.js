@@ -2,8 +2,6 @@
 var dragging = false;
 var dragging2 = false;
 
-var rotating = false;
-
 var clock;
 var arrow1;
 var arrow2;
@@ -32,8 +30,8 @@ function setup () {
 //Little Arrow
   x2 = 300;
   y2 = 300;
-  w2 = 120;
-  h2 = 80;
+  w2 = 100;
+  h2 = 70;
   r2 = 0;
 }
 
@@ -50,6 +48,9 @@ function draw () {
     y2 = mouseY + placeY;
   }
 
+  text('12:10',20,20);
+  text('11:15',60,20);
+
   push();
   translate(x1, y1);
   rotate(r1);
@@ -62,15 +63,17 @@ function draw () {
   pop();
 }
 
+
+
 function mousePressed () {
-  if (mouseX > x1 - w1 && mouseX < x1 + w1 && mouseY > y1 - (h1 / 2) && mouseY < y1 + (h1 / 2)) {
+  if (mouseX > x1 - w1 && mouseX < x1 + w1  && mouseY > y1 - (h1 / 2) && mouseY < y1 + (h1 / 2)) {
     dragging = true;
 
     offsetX = x1 - mouseX;
     offsetY = y1 - mouseY;
   }
 
-  if (mouseX > x2 - w2 && mouseX < x2 + w2 && mouseY > y2 - (h2 / 2) && mouseY < y2 + (h2 /2)) {
+  if (mouseX > x2 - w2 && mouseX < x2 + w2  && mouseY > y2 - (h2 / 2) && mouseY < y2 + (h2 / 2)) {
     dragging2 = true;
 
     placeX = x2 - mouseX;
@@ -92,8 +95,11 @@ function keyPressed () {
   }
 }
 
-
 function mouseReleased () {
   dragging = false;
   dragging2 = false;
+}
+if (x1 = 300 && x2 <= 300) {
+  console.log("5");
+
 }
