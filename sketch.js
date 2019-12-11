@@ -1,15 +1,14 @@
-/* globals createCanvas, mousePressed, background, image */
-var dragging = false;
-var dragging2 = false;
+/* globals createCanvas, background, image */
+
+var rightTime = false;
 
 var clock;
+
 var arrow1;
 var arrow2;
 
 var x1, y1, w1, h1, r1;
 var x2, y2, w2, h2, r2;
-var offsetX, offsetY;
-var placeX, placeY;
 
 function preload () {
   clock = loadImage('clock.png');
@@ -19,7 +18,7 @@ function preload () {
 
 function setup () {
   var canvas =
-  createCanvas(550,550);
+  createCanvas(550, 550);
   canvas.parent('sketch-holder');
   angleMode(DEGREES);
 
@@ -31,14 +30,14 @@ function setup () {
     }
   }, false);
 
-//Big Arrow
+  //  Big Arrow
   x1 = 300;
   y1 = 300;
   w1 = 150;
   h1 = 80;
   r1 = 0;
 
-//Little Arrow
+  //  Little Arrow
   x2 = 300;
   y2 = 300;
   w2 = 100;
@@ -49,19 +48,8 @@ function setup () {
 function draw () {
   background('powderblue');
   image(clock, 50, 50, 500, 500);
-
-  // if (dragging) {
-  //   x1 = mouseX + offsetX;
-  //   y1 = mouseY + offsetY;
-  // }
-  // if (dragging2) {
-  //   x2 = mouseX + placeX;
-  //   y2 = mouseY + placeY;
-  // }
-
-  text('r1: ' + r1.toFixed(2), 20, 20);
-  text('r2: ' + r2.toFixed(2), 80, 20);
-
+  text('r1: ' + r1.toFixed(1), 510, 460);
+  text('r2: ' + r2.toFixed(1), 510, 500);
   push();
   translate(x1, y1);
   rotate(r1);
@@ -74,46 +62,32 @@ function draw () {
   pop();
 
   // 12:10 pm
-  if (r1 === 90 && r2 === 140) {
+  if (r1 === 150 && r2 === 90) {
     document.getElementById('img1').src = '1.jpeg';
+    rightTime = true;
   }
   // 11:15 am
-  if (r1 === 60 && r2 === 180) {
+  if (r1 === 180 && r2 === 60) {
     document.getElementById('img2').src = '2.jpeg';
   }
   // 7:45 pm
-  if (r1 === 300 && r2 === 0) {
+  if (r1 === 0 && r2 === 300) {
     document.getElementById('img3').src = '3.jpeg';
   }
   // 5:05 am
-  if (r1 === 240 && r2 === 120) {
+  if (r1 === 120 && r2 === 240) {
     document.getElementById('img4').src = '4.jpeg';
   }
   // 3:30 pm
-  if (r1 === 180 && r2 === 270) {
+  if (r1 === 270 && r2 === 180) {
     document.getElementById('img5').src = '5.jpeg';
   }
   // 9:20 am
-  if (r1 === 0 && r2 === 220) {
+  if (r1 === 210 && r2 === 0) {
     document.getElementById('img6').src = '6.jpeg';
   }
 }
 
-// function mousePressed () {
-//   if (mouseX > x1 - w1 && mouseX < x1 + w1  && mouseY > y1 - (h1 / 2) && mouseY < y1 + (h1 / 2)) {
-//     dragging = true;
-//
-//     offsetX = x1 - mouseX;
-//     offsetY = y1 - mouseY;
-//   }
-//
-//   if (mouseX > x2 - w2 && mouseX < x2 + w2  && mouseY > y2 - (h2 / 2) && mouseY < y2 + (h2 / 2)) {
-//     dragging2 = true;
-//
-//     placeX = x2 - mouseX;
-//     placeY = y2 - mouseY;
-//   }
-// }
 function keyPressed () {
   if (key === 'ArrowRight') {
     r1 += 10;
@@ -140,8 +114,8 @@ function wrapClock (r) {
   }
   return rotation;
 }
-
-function mouseReleased () {
-  dragging = false;
-  dragging2 = false;
+if (rightTime) {
+  fill('red');
+  textSize(35);
+  text('Congrats!!!', 200, 30);
 }
