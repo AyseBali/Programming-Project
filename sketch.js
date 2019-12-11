@@ -65,26 +65,41 @@ function draw () {
   if (r1 === 150 && r2 === 90) {
     document.getElementById('img1').src = '1.jpeg';
     rightTime = true;
+  } else {
+    rightTime = false;
   }
   // 11:15 am
   if (r1 === 180 && r2 === 60) {
     document.getElementById('img2').src = '2.jpeg';
+    rightTime = true;
   }
+
   // 7:45 pm
   if (r1 === 0 && r2 === 300) {
     document.getElementById('img3').src = '3.jpeg';
+    rightTime = true;
   }
   // 5:05 am
   if (r1 === 120 && r2 === 240) {
     document.getElementById('img4').src = '4.jpeg';
+    rightTime = true;
   }
   // 3:30 pm
   if (r1 === 270 && r2 === 180) {
     document.getElementById('img5').src = '5.jpeg';
+    rightTime = true;
   }
   // 9:20 am
   if (r1 === 210 && r2 === 0) {
     document.getElementById('img6').src = '6.jpeg';
+    rightTime = true;
+  }
+  if (rightTime) {
+    push();
+    fill('red');
+    textSize(35);
+    text('Congrats!!!', 200, 30);
+    pop();
   }
 }
 
@@ -113,9 +128,4 @@ function wrapClock (r) {
     rotation = 360 + rotation;
   }
   return rotation;
-}
-if (rightTime) {
-  fill('red');
-  textSize(35);
-  text('Congrats!!!', 200, 30);
 }
