@@ -18,9 +18,7 @@ function preload () {
 }
 
 function setup () {
-  var canvas =
-  createCanvas(550,550);
-  canvas.parent('sketch-holder');
+  createCanvas(600,600);
   angleMode(DEGREES);
 
   // magic to make the browser not scroll with the arrow keys
