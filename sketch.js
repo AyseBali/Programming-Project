@@ -72,27 +72,27 @@ function draw () {
   pop();
 
   // 12:10 pm
-  if (r1 === 90 && r2 === 140) {
+  if (r2 === 90 && r1 === 140) {
     document.getElementById('img1').src = '1.jpeg';
   }
   // 11:15 am
-  if (r1 === 60 && r2 === 180) {
+  if (r2 === 60 && r1 === 180) {
     document.getElementById('img2').src = '2.jpeg';
   }
   // 7:45 pm
-  if (r1 === 300 && r2 === 0) {
+  if (r2 === 300 && r1 === 0) {
     document.getElementById('img3').src = '3.jpeg';
   }
   // 5:05 am
-  if (r1 === 240 && r2 === 120) {
+  if (r2 === 240 && r1 === 120) {
     document.getElementById('img4').src = '4.jpeg';
   }
   // 3:30 pm
-  if (r1 === 180 && r2 === 270) {
+  if (r2 === 180 && r1 === 270) {
     document.getElementById('img5').src = '5.jpeg';
   }
   // 9:20 am
-  if (r1 === 0 && r2 === 220) {
+  if (r2 === 0 && r1 === 220) {
     document.getElementById('img6').src = '6.jpeg';
   }
 }
