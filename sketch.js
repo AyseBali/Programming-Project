@@ -96,8 +96,8 @@ function draw () {
   }
   if (rightTime) {
     push();
-    fill('red');
-    textSize(35);
+    fill('green');
+    textSize(45);
     text('Congrats!!!', 200, 30);
     pop();
   }
