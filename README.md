@@ -1,4 +1,4 @@
-# **Learn to Tell Time**
+# Learn to Tell Time
 by Ayse and Polina
 ## Description
    *"Learn to Tell Time"* is a game that could help people of all ages to learn how to tell time by reading a non-digital clock.Their 6 times that need to be matched to finish the game. This game requires people to use their keyboard arrows to match the clock arrows with an hour and minutes provided. As, soon as the person matches the digital time given with the position of the arrows, the "Congratulation!!!" sign will appear and the time that was matched will change colors.
