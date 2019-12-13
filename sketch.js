@@ -58,7 +58,7 @@ function draw () {
   push();
   translate(x2, y2);
   rotate(r2);
-  image(arrow2, -w2, -h2 / 2 , w2, h2);
+  image(arrow2, -w2, -h2 / 2, w2, h2);
   pop();
 
   // 12:10 pm
